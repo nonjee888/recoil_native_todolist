@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, TextInput, View } from "react-native";
 import { useSetRecoilState } from "recoil";
-import { todoListState } from "../recoil/atoms";
+import { todoListState } from "../recoil/atom";
 
 let id = 0;
 function getId() {
@@ -31,11 +31,11 @@ function TodoItemCreator() {
   return (
     <View>
       <TextInput
-        style={{ height: 40, borderColor: "grey", borderWidth: 1 }}
+        style={{ height: 40, width: 150, borderColor: "grey", borderWidth: 1 }}
         value={inputValue}
         onChangeText={onChange}
       />
-      <Button onPress={addItem} title="Add Item" />
+      <Button onPress={addItem} title="Add Item" disabled={!inputValue} />
     </View>
   );
 }
